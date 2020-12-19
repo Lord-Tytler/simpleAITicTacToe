@@ -127,7 +127,6 @@ func drawO(row, col int, pixels []byte) { //takes center coordinates from getCen
 	y := 0
 	for x < r {
 		y = int(math.Round(math.Sqrt(float64(r*r - x*x))))
-		fmt.Println(y)
 		setPixel(x+cX, y+cY, red, pixels)
 		setPixel(x+cX, (y*-1)+cY, red, pixels)
 		x++

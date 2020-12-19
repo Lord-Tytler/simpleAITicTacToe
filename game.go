@@ -57,7 +57,8 @@ func checkVertical() (shape int) {
 	return 0
 }
 
-func checkDiagonal() (shape int) { //TODO: this don't work
+func checkDiagonal() (shape int) {
+	//checks if all spaces match (nonzero) left to right
 	threeInARow := true
 	temp := board[0][0]
 	j := 1
@@ -66,6 +67,22 @@ func checkDiagonal() (shape int) { //TODO: this don't work
 			threeInARow = false
 			i = 3
 		}
+		j++
+	}
+	if threeInARow {
+		return temp
+	}
+
+	//checks if all spaces match (nonzero) left to right
+	threeInARow = true
+	temp = board[2][0]
+	j = 1
+	for i := 1; i >= 0; i-- {
+		if board[i][j] != temp || board[i][j] == 0 {
+			threeInARow = false
+			i = -1
+		}
+		j++
 	}
 	if threeInARow {
 		return temp
